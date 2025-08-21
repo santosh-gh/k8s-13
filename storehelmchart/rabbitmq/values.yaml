@@ -1,0 +1,6 @@
+rabbitmq:
+  type: ClusterIP
+  replicas: 1
+  image:
+    repository: mcr.microsoft.com/azurelinux/base/rabbitmq-server
+    tag: "3.13"

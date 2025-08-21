@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+spec:
+  ports:
+  - name: rabbitmq-amqp
+    port: 5672
+    targetPort: 5672
+  - name: rabbitmq-http
+    port: 15672
+    targetPort: 15672
+  selector:
+    app: rabbitmq
+  type: '{{ .Values.rabbitmq.type }}'
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: rabbitmq
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rabbitmq
+  serviceName: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+      - env:
+        - name: RABBITMQ_DEFAULT_USER
+          value: username
+        - name: RABBITMQ_DEFAULT_PASS
+          value: password
+        image: '{{ .Values.rabbitmq.image.repository }}:{{ .Values.rabbitmq.image.tag
+          }}'
+        name: rabbitmq
+        ports:
+        - containerPort: 5672
+          name: rabbitmq-amqp
+        - containerPort: 15672
+          name: rabbitmq-http
+        resources:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 10m
+            memory: 128Mi
+        volumeMounts:
+        - mountPath: /etc/rabbitmq/enabled_plugins
+          name: rabbitmq-enabled-plugins
+          subPath: enabled_plugins
+      nodeSelector:
+        kubernetes.io/os: linux
+      volumes:
+      - configMap:
+          items:
+          - key: rabbitmq_enabled_plugins
+            path: enabled_plugins
+          name: rabbitmq-enabled-plugins
+        name: rabbitmq-enabled-plugins

@@ -1,0 +1,3 @@
+resources:
+  - store-front-deployment.yml
+  - store-front-service.yml

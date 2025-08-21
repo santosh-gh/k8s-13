@@ -1,0 +1,3 @@
+resources:
+  - product-deployment.yml
+  - product-service.yml

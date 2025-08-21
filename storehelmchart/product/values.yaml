@@ -1,0 +1,6 @@
+productService:
+  type: ClusterIP
+  replicas: 1
+  image:
+    repository: acronlinestoredevuksouth001.azurecr.io/product
+    tag: v1

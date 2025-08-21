@@ -1,0 +1,3 @@
+resources:
+  - order-deployment.yml
+  - order-service.yml

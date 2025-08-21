@@ -1,0 +1,11 @@
+orderService:
+  type: ClusterIP
+  replicas: 1
+  image:
+    repository: acronlinestoredevuksouth001.azurecr.io/order
+    tag: v1
+
+  waitForRabbitmq:
+    image:
+      repository: busybox
+      tag: latest
