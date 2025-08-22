@@ -1,4 +1,4 @@
-# Part 11: Deploying microservice applications in AKS using Helm Chart and Kustomize
+# Part 13: Deploying microservice applications in AKS using Helm Chart and Kustomize
 
     Overlay First Approach
 
@@ -60,6 +60,21 @@
              Deploy into multiple environments (dev, test, prod) using command line tools.
 
     GitHub:  https://github.com/santosh-gh/k8s-11
+    YouTube: https://www.youtube.com/watch?v=VAiR3sNavh0
+
+    Part12:  Automated Deployment (AzCLI + Docker + Helm + kustomize + kubectl)
+             Template First approach 
+             Dynamically update the image tag in deploy.yaml         
+             Deploy into multiple environments (dev, test, prod) using Azure Pipeline.
+
+    GitHub:  https://github.com/santosh-gh/k8s-12
+    YouTube: https://www.youtube.com/watch?v=VAiR3sNavh0
+
+    Part13:  Manual Deployment (AzCLI + Docker + Helm + kustomize + kubectl)
+             Overlay First approach             
+             Deploy into multiple environments (dev, test, prod) thorough commands.
+
+    GitHub:  https://github.com/santosh-gh/k8s-13
     YouTube: https://www.youtube.com/watch?v=VAiR3sNavh0
 
 # Architesture
@@ -140,7 +155,7 @@
 
        kustomize version 
 
-    4. Update Helm Chart Directory to overlay with kustomize     
+    4. Update base and overlays template manifests to generate the helm template     
 
     5. App deployment        
 
@@ -225,9 +240,7 @@
 
     kustomize version 
 
-# Update Helm Chart Directory to overlay with kustomize
-
-# Generate output template (deploy.yaml)
+# Update base and overlays template manifests to generate the helm template (deploy.yaml)
 
     kustomize build ./storehelmchart/config/base > ./storehelmchart/config/templates/deploy.yaml
     kustomize build ./storehelmchart/rabbitmq/overlays/dev > ./storehelmchart/rabbitmq/templates/deploy.yaml
@@ -235,12 +248,10 @@
     kustomize build ./storehelmchart/product/overlays/dev > ./storehelmchart/product/templates/deploy.yaml
     kustomize build ./storehelmchart/store-front/overlays/dev > ./storehelmchart/store-front/templates/deploy.yaml
 
-
     kustomize build ./storehelmchart/rabbitmq/overlays/test > ./storehelmchart/rabbitmq/templates/deploy.yaml
     kustomize build ./storehelmchart/order/overlays/test > ./storehelmchart/order/templates/deploy.yaml
     kustomize build ./storehelmchart/product/overlays/test > ./storehelmchart/product/templates/deploy.yaml
     kustomize build ./storehelmchart/store-front/overlays/test > ./storehelmchart/store-front/templates/deploy.yaml
-
 
     kustomize build ./storehelmchart/rabbitmq/overlays/prod > ./storehelmchart/rabbitmq/templates/deploy.yaml
     kustomize build ./storehelmchart/order/overlays/prod > ./storehelmchart/order/templates/deploy.yaml
