@@ -264,6 +264,7 @@
     helm template ./storehelmchart/config
     helm template ./storehelmchart/rabbitmq
     helm template ./storehelmchart/order
+    
     helm template ./storehelmchart/product
     helm template ./storehelmchart/store-front
 
