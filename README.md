@@ -88,7 +88,7 @@
 
 # Directory Structure
 
-![Directory Structure](image.png)
+![Directory Structure](image1.png)
 
 # Tetechnology Stack
 
