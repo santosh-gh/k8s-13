@@ -60,7 +60,7 @@
              Deploy into multiple environments (dev, test, prod) using command line tools.
 
     GitHub:  https://github.com/santosh-gh/k8s-11
-    YouTube: https://www.youtube.com/watch?v=VAiR3sNavh0
+    YouTube: https://www.youtube.com/watch?v=ZNHoZ_b85DQ&t=6s
 
     Part12:  Automated Deployment (AzCLI + Docker + Helm + kustomize + kubectl)
              Template First approach 
@@ -68,7 +68,7 @@
              Deploy into multiple environments (dev, test, prod) using Azure Pipeline.
 
     GitHub:  https://github.com/santosh-gh/k8s-12
-    YouTube: https://www.youtube.com/watch?v=VAiR3sNavh0
+    YouTube: https://www.youtube.com/watch?v=qxJyTHzWG4U
 
     Part13:  Manual Deployment (AzCLI + Docker + Helm + kustomize + kubectl)
              Overlay First approach             
